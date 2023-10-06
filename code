@@ -1,0 +1,159 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+//STRUCTURE
+struct account
+{
+string name;
+string address;
+string city;
+string state;
+string zipcode;
+string phone;
+double balence;
+string lastPayment; 
+};
+
+
+//STARTS HERE
+int main() 
+{
+
+
+  int choice,index,balence;
+  
+  
+  //array
+  int i =0, accNum;
+  const int SIZE = 10;
+  account customer[SIZE];
+  
+  do 
+  {
+      cout << "\nPlease choose from the menu below"<<endl;  
+      cout << "1. Enter data into the account"<<endl;
+      cout << "2. Change data"<<endl;
+      cout <<"3. View all data"<<endl;
+      cout << "4. Quit"<<endl;
+      cin >> choice;
+      cin.ignore();
+      
+  
+    //ENTER DATA INTO ACCOUNT
+    switch (choice)
+    {   
+      case 1: 
+        cout << "\nEnter your name :"<<endl;
+        getline(cin, customer[i].name);
+        
+        cout << "Enter your address : "<<endl;
+        getline(cin, customer[i].address);
+        
+        cout << "Enter your city : "<<endl;
+        getline(cin, customer[i].city);
+        
+        cout << "Enter your state : "<<endl;
+        getline(cin, customer[i].state);
+        
+        cout << "Enter your zipcode : "<<endl;
+        getline(cin, customer[i].zipcode);
+
+        cout << "Enter your phone number : "<<endl;
+        getline(cin,customer[i].phone);
+        
+        cout << "Enter your balance : "<<endl;
+        cin >> customer[i].balence;
+          if (balence<0)
+          {
+            cout <<"ERROR!!! please enter a postive number!"<<endl;
+              cin>>customer[i].balence; 
+          }
+        cout << "Enter the date of your last payment(mm/dd/yyyy): "<<endl;
+        cin >> customer[i].lastPayment;
+
+        cout << "You entered the information for customer " << i << endl; 
+        i++; 
+        accNum = i ;
+     
+  
+      break;
+        
+
+
+
+      
+        
+//CHANGE DATA 
+case 2:
+
+cout << "\nEnter the index of the element you want to change. (0-9)" <<endl;
+  cin >> index;
+cin.ignore();
+
+     cout << "Name: ";
+     getline(cin, customer[index].name);
+     
+  
+      cout << "Address: ";
+      getline(cin, customer[index].address);
+      
+  
+      cout << "City: ";
+      getline(cin, customer[index].city);
+      
+  
+      cout << "State: ";
+      getline(cin, customer[index].state);
+      
+  
+      cout << "ZIP code: ";
+      getline(cin, customer[index].zipcode);
+      
+  
+      
+      cout << "Phone number:";
+      getline(cin,customer[index].phone);
+      
+  
+      cout << "Account balance: $";
+      cin >> customer[index].balence;
+      
+                         
+      while (customer[index].balence < 0)
+      {
+        cout << "ERROR!!! please enter a postive number!"<<endl;
+        cin >> customer[index].balence;
+      }
+      
+       break;
+    
+
+      
+    
+//VIEW DATA 
+case 3:
+      for (int i = 0; i < accNum; i++)
+      {
+        cout << "\nHere are the customer's information"<<endl;
+        cout << "Name: " << customer[i].name <<endl;
+        cout << "Address: " << customer[i].address <<endl;
+        cout << "City: " << customer[i].city <<endl;
+        cout << "State: " << customer[i].state <<endl;
+        cout << "Zipcode: " << customer[i].zipcode <<endl;
+        cout << "Phone Number :"<<customer[i].phone<<endl;
+        cout << "Balance: $" << customer[i].balence <<endl;
+        cout << "Last payment: $" << customer[i].lastPayment <<endl;
+      }
+      break;
+
+      case 4: 
+        system("clear") ; 
+      cout << "Goodbyeeeeee!" ; 
+          
+    } 
+  }while (choice != 4);
+  
+return 0 ; 
+}
